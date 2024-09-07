@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
-
-import "./globals.css";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "@/lib/theme/theme";
+import { Inter } from "next/font/google";
+import { CssBaseline } from "@mui/material";
 
 export const metadata: Metadata = {
   title: "Simple blog app",
   description: "Simple blog app created by Mostafa Milly",
 };
+
+export const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+});
 
 export default function RootLayout({
   children,
@@ -13,8 +22,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={`${inter.className} ${inter.variable}`}>
+      <body>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }
