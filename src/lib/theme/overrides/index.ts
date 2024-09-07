@@ -5,10 +5,9 @@ import { TooltipStylesOverrides } from "./Tooltip";
 import { LinkStylesOverrides } from "./Link";
 import { CssBaselineStylesOverrides } from "./Cssbaseline";
 import { CardStylesOverrides } from "./Card";
-import { CardMediaStylesOverrides } from "./card-media";
-import { CardContentStylesOverrides } from "./card-content";
+import { CardMediaStylesOverrides } from "./cardMedia";
+import { CardContentStylesOverrides } from "./cardContent";
 import { BreadCrumbsStylesOverrides } from "./BreadCrumbs";
-import { ChipStylesOverrides } from "./Chip";
 import { ContainerStylesOverrides } from "./Container";
 
 export const componentsOverrides: Components<Theme> = {
@@ -20,6 +19,5 @@ export const componentsOverrides: Components<Theme> = {
   MuiCardMedia: CardMediaStylesOverrides,
   MuiCardContent: CardContentStylesOverrides,
   MuiBreadcrumbs: BreadCrumbsStylesOverrides,
-  MuiChip: ChipStylesOverrides,
   MuiContainer: ContainerStylesOverrides,
 };

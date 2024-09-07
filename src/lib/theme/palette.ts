@@ -11,10 +11,10 @@ export const palette: PaletteOptions = {
   },
   background: {
     default: "#f4f4f5",
-    paper: "#e5e5e6",
+    paper: "#F7F8F9",
   },
   text: {
     primary: "#18181b",
-    secondary: "#3d3d42",
+    secondary: "#6e6e77",
   },
 };
