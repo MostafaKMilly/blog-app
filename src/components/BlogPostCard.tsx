@@ -13,7 +13,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const BlogPostCard: React.FC<BlogPost> = ({ title, body, id }) => {
   return (
-    <Link href={`/${id}`} style={{ textDecoration: "none" }}>
+    <Link href={`/posts/${id}`} style={{ textDecoration: "none" }}>
       <Card
         sx={{
           borderRadius: "0.75rem",
