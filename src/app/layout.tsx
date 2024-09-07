@@ -3,10 +3,12 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@/lib/theme/theme";
 import { Inter } from "next/font/google";
-import { CssBaseline } from "@mui/material";
+import { CssBaseline, Box } from "@mui/material";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Simple blog app",
+  title: "Simple blog app | Mostafa Milly",
   description: "Simple blog app created by Mostafa Milly",
 };
 
@@ -23,11 +25,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.className} ${inter.variable}`}>
-      <body>
+      <body
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+        }}
+      >
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            {children}
+            <Header />
+            <Box component="main" sx={{ flexGrow: 1 }}>
+              {children}
+            </Box>
+            <Footer />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

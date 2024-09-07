@@ -9,6 +9,7 @@ import { CardMediaStylesOverrides } from "./card-media";
 import { CardContentStylesOverrides } from "./card-content";
 import { BreadCrumbsStylesOverrides } from "./BreadCrumbs";
 import { ChipStylesOverrides } from "./Chip";
+import { ContainerStylesOverrides } from "./Container";
 
 export const componentsOverrides: Components<Theme> = {
   MuiButton: ButtonStylesOverrides,
@@ -20,4 +21,5 @@ export const componentsOverrides: Components<Theme> = {
   MuiCardContent: CardContentStylesOverrides,
   MuiBreadcrumbs: BreadCrumbsStylesOverrides,
   MuiChip: ChipStylesOverrides,
+  MuiContainer: ContainerStylesOverrides,
 };
