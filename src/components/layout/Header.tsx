@@ -11,8 +11,6 @@ import {
   List,
   ListItemText,
   Box,
-  useTheme,
-  useMediaQuery,
   ListItemButton,
   Container,
 } from "@mui/material";
@@ -30,8 +28,7 @@ const navItems = [
 
 const Header: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   const pathname = usePathname();
 
   const handleDrawerToggle = () => {
@@ -109,42 +106,51 @@ const Header: React.FC = () => {
               Mostafa Blog
             </Typography>
 
-            {!isMobile && (
-              <Box>
-                {navItems.map((item) => (
-                  <Button
-                    key={item.label}
-                    color="inherit"
-                    component={Link}
-                    href={item.href}
-                    sx={{
-                      textTransform: "none",
-                      fontSize: "1rem",
-                      bgcolor: pathname === item.href ? "white" : "transparent",
-                      color: pathname === item.href ? "black" : "inherit",
-                      "&:hover": {
-                        bgcolor: "white",
-                        color: "black",
-                      },
-                      margin: "0 8px",
-                    }}
-                  >
-                    {item.label}
-                  </Button>
-                ))}
-              </Box>
-            )}
+            <Box
+              sx={{
+                display: {
+                  xs: "none",
+                  md: "block",
+                },
+              }}
+            >
+              {navItems.map((item) => (
+                <Button
+                  key={item.label}
+                  color="inherit"
+                  component={Link}
+                  href={item.href}
+                  sx={{
+                    textTransform: "none",
+                    fontSize: "1rem",
+                    bgcolor: pathname === item.href ? "white" : "transparent",
+                    color: pathname === item.href ? "black" : "inherit",
+                    "&:hover": {
+                      bgcolor: "white",
+                      color: "black",
+                    },
+                    margin: "0 8px",
+                  }}
+                >
+                  {item.label}
+                </Button>
+              ))}
+            </Box>
 
-            {isMobile && (
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="end"
-                onClick={handleDrawerToggle}
-              >
-                <MenuIcon />
-              </IconButton>
-            )}
+            <IconButton
+              color="inherit"
+              sx={{
+                display: {
+                  xs: "inline-flex",
+                  md: "none",
+                },
+              }}
+              aria-label="open drawer"
+              edge="end"
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
           </Toolbar>
         </Container>
       </AppBar>
