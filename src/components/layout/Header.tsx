@@ -96,11 +96,21 @@ const Header: React.FC = () => {
     <>
       <AppBar position="static" sx={{ bgcolor: "blogNav.background" }}>
         <Container>
-          <Toolbar sx={{ justifyContent: "space-between", px: 0 }}>
+          <Toolbar
+            sx={{ justifyContent: "space-between", px: "0px !important" }}
+          >
             <Typography
               variant="h6"
+              component={Link}
+              href={"/"}
               color="blogNav.contrastText"
-              sx={{ display: "flex", alignItems: "center", gap: 1 }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                textDecoration: "none",
+                color: "white",
+              }}
             >
               <Image src="/images/logo.svg" width={24} height={24} alt="Logo" />
               Mostafa Blog

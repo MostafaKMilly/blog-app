@@ -24,7 +24,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
   };
 
   return (
-    <Box sx={{ padding: { xs: 2, md: 4 } }}>
+    <Box sx={{ py: { xs: 2, md: 4 } }}>
       <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2 }}>
         Blog Posts
       </Typography>
