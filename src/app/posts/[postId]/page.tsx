@@ -7,10 +7,12 @@ import {
   Divider,
   Breadcrumbs,
   Link as MuiLink,
+  Alert,
 } from "@mui/material";
 import Image from "next/image";
 import CommentsSection from "@/components/CommentsSection";
 import Link from "next/link";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 async function BlogPostDetails({ params }: { params: { postId: string } }) {
   const posts = await getPosts();
@@ -19,9 +21,34 @@ async function BlogPostDetails({ params }: { params: { postId: string } }) {
   const comments = await getCommentsByPostId(postId);
 
   if (!post) {
-    return <Typography variant="h4">Post not found</Typography>;
+    return (
+      <Container sx={{height : "100%"}}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
+            mt: 4,
+            width: "100%",
+          }}
+        >
+          <Alert
+            severity="error"
+            icon={<ErrorOutlineIcon />}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              fontSize: "1.25rem",
+              fontWeight: "bold",
+            }}
+          >
+            Post not found
+          </Alert>
+        </Box>
+      </Container>
+    );
   }
-
   return (
     <Container>
       <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2, mt: 4 }}>
