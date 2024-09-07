@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Blog App
+
+This is a [Next.js](https://nextjs.org) blog application project for Aqary International Group senior frontend developer position
+
+## Features
+
+- **Blog Posts:** Display a list of blog posts with pagination.
+- **Blog Details:** View individual blog posts, along with a section for user comments.
+- **Comments Section:** Users can view comments associated with each blog post.
+- **Responsive Design:** Optimized for both desktop and mobile devices.
+- **MUI (Material UI):** Integrated with Material UI for modern, responsive UI components.
 
 ## Getting Started
 
-First, run the development server:
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/MostafaKMilly/blog-app
+   cd blog-app
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
+
+## Running Tests
+
+To run the test suite, use the following command:
 
 ```bash
-npm run dev
+npm run test
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Jest is configured for unit testing, and React Testing Library is used for component tests.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## File Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+src/
+  ├── __tests__/                   # Unit tests for components
+  ├── app/
+  │   ├── posts/                   # Posts pages
+  │   │   └── [postId]/            # Dynamic route for blog post details
+  │   │       └── page.tsx         # Blog post details page
+  │   ├── favicon.ico              # App favicon
+  │   ├── layout.tsx               # Main layout for the app
+  │   └── page.tsx                 # Main blog page
+  ├── components/
+  │   ├── layout/                  # Header, Footer, etc.
+  │   ├── BlogPostCard.tsx         # Blog post card component
+  │   ├── BlogPosts.tsx            # Blog posts grid with pagination
+  │   └── CommentsSection.tsx      # Comments section component
+  ├── lib/
+  │   ├── api/
+  │   │   ├── getPosts.ts          # API call to fetch posts
+  │   │   └── getCommentsByPostId.ts # API call to fetch comments by post ID
+  │   ├── theme/                   # MUI theme customization
+  │   └── types/                   # TypeScript types for data models
+  └── .env                         # Environment variables
+```
